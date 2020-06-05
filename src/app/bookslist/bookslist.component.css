@@ -1,0 +1,19 @@
+.list{
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    border: 1px solid blue;
+    margin: 0 auto 0 auto;
+}
+
+tr{
+    border: 1px solid blue;
+}
+
+td{
+    border: 1px solid blue;
+    padding: 5px 5px 5px 5px;
+}

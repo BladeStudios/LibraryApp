@@ -1,1 +1,24 @@
-<p>bookslist works!</p>
+<p style="font-size: 20px; font-weight: bold; font-family: Verdana; text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>
+
+<div class="list"> 
+    <table>
+        <tr style="font-weight: bold;">
+            <td>ID</td>
+            <td>Autor</td>
+            <td>Tytuł</td>
+            <td>Rok wydania</td>
+            <td>Akcje</td>
+        </tr>
+        <tr *ngFor="let book of books">
+            <td>{{book.id}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.year}}</td>
+            <td *ngIf="book.borrowed"><button class="btn btn-secondary">Wypożycz</button>&nbsp;
+                <button class="btn btn-primary">Zwróć</button></td>
+            <td *ngIf="!book.borrowed"><button class="btn btn-success">Wypożycz</button>&nbsp;
+                <button class="btn btn-secondary">Zwróć</button></td>
+            </tr>
+    </table>
+</div>
+
