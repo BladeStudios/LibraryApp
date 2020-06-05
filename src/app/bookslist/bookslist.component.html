@@ -15,10 +15,10 @@
             <td>{{book.title}}</td>
             <td>{{book.year}}</td>
             <td *ngIf="book.borrowed"><button class="btn btn-secondary">Wypożycz</button>&nbsp;
-                <button class="btn btn-primary">Zwróć</button></td>
-            <td *ngIf="!book.borrowed"><button class="btn btn-success">Wypożycz</button>&nbsp;
+                <button class="btn btn-danger" (click)="onReturn(book)">Zwróć</button></td>
+            <td *ngIf="!book.borrowed"><button class="btn btn-success" (click)="onBorrow(book)">Wypożycz</button>&nbsp;
                 <button class="btn btn-secondary">Zwróć</button></td>
-            </tr>
+        </tr>
     </table>
 </div>
 

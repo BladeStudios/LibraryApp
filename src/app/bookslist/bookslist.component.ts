@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BOOKS } from '../test-books';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-bookslist',
@@ -9,10 +10,18 @@ import { BOOKS } from '../test-books';
 export class BookslistComponent implements OnInit {
 
   books = BOOKS;
-  
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onBorrow(book: Book){
+    book.borrowed = true;
+  }
+
+  onReturn(book: Book){
+    book.borrowed = false;
   }
 
 }
