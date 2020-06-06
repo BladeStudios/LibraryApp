@@ -59,4 +59,10 @@ export class UserService {
     );
   }
 
+  getPassword(){
+    return this.http.
+    get('http://apilibary.azurewebsites.net/api/user/generate',
+    {responseType: 'text'});
+  }
+
 }

@@ -10,6 +10,8 @@ import { UserService } from '../user.service';
 export class UserpanelComponent implements OnInit {
   users: User[];
   newUser: User = new User();
+  usersearch: string;
+  generatedpassword: string;
 
   constructor(private userService: UserService) { 
   }
@@ -38,6 +40,22 @@ export class UserpanelComponent implements OnInit {
     this.newUser.type = newtype;
     this.newUser.status = "offline";
     this.userService.addUser(this.newUser).subscribe(response=>{this.ngOnInit()});
+  }
+
+  SearchUser(){
+    if(this.usersearch != "")
+    {
+      this.users = this.users.filter(res=>{
+        return res.username.toLocaleLowerCase().
+        match(this.usersearch.toLocaleString().toLocaleLowerCase());
+      })
+    }else if (this.usersearch == ""){
+      this.ngOnInit();
+    }
+  }
+
+  getPassword(): void{
+    this.userService.getPassword().subscribe(pw=> this.generatedpassword = pw);
   }
 
 }

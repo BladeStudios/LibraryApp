@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { BookslistComponent } from './bookslist/bookslist.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

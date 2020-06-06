@@ -2,6 +2,15 @@
 text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>-->
 <div class="pagetitle">Lista książek</div>
 
+<div style="font-weight: bold; text-align: center;">Wyszukiwanie wg:</div><br>
+<div style="text-align: center;">
+Autora: <input type="text" #AuthorInput [(ngModel)]="authorsearch"
+(input)="SearchAuthor()"/>
+Tytułu: <input type="text" #TitleInput [(ngModel)]="titlesearch"
+(input)="SearchTitle()"/>
+Roku: <input type="number" #YearInput [(ngModel)]="yearsearch"
+(input)="SearchYear()"/>
+</div><br>
 <div class="list"> 
     <table>
         <tr style="font-weight: bold;">
@@ -42,5 +51,3 @@ text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>-->
         <button class="btn btn-success" (click)="onAdd(author.value, title.value, year.value);">Dodaj</button>
     <br>
 </div>
-<br><br>
-<h1><div style="text-align: center; color: red">WYSZUKIWANIE - //TODO</div></h1>

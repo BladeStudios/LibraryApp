@@ -10,6 +10,9 @@ import { BookService } from '../book.service';
 export class BookslistComponent implements OnInit {
   books: Book[];
   newBook: Book = new Book();
+  authorsearch: string;
+  titlesearch: string;
+  yearsearch: number;
 
   constructor(private bookService: BookService) {
    }
@@ -48,6 +51,43 @@ export class BookslistComponent implements OnInit {
   onReturn(book: Book){
     book.rent = false;
     this.updateBook(book);
+  }
+
+  SearchAuthor(){
+    if(this.authorsearch != "")
+    {
+      this.books = this.books.filter(res=>{
+        return res.author.toLocaleLowerCase().
+        match(this.authorsearch.toLocaleString().toLocaleLowerCase());
+      })
+    }else if (this.authorsearch == ""){
+      this.ngOnInit();
+    }
+  }
+
+  SearchTitle(){
+    if(this.titlesearch != "")
+    {
+      this.books = this.books.filter(res=>{
+        return res.title.toLocaleLowerCase().
+        match(this.titlesearch.toLocaleString().toLocaleLowerCase());
+      })
+    }else if (this.titlesearch == ""){
+      this.ngOnInit();
+    }
+  }
+
+  SearchYear(){
+    if(this.yearsearch == null)
+    {
+      this.ngOnInit();
+      
+    }else if (this.yearsearch.toString() != ""){
+      this.books = this.books.filter(res=>{
+        return res.year.toString().toLocaleLowerCase().
+        match(this.yearsearch.toLocaleString().toLocaleLowerCase());
+      })
+    }
   }
 
 }

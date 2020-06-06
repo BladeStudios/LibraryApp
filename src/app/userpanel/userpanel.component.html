@@ -1,5 +1,11 @@
 <div class="pagetitle">Panel administracyjny</div>
 
+<div style="font-weight: bold; text-align: center;">
+    Wyszukiwanie wg nazwy użytkownika:
+<input type="text" #UserInput [(ngModel)]="usersearch"
+(input)="SearchUser()"/>
+</div><br>
+
 <div class="list"> 
     <table>
         <tr style="font-weight: bold;">
@@ -34,7 +40,7 @@
     <div style="font-weight: bold; text-align: center;">Dodawanie użytkownika:</div><br>
     
         <label>Username: <input #username/></label>&nbsp;
-        <label>Password: <input type="password" #password/></label>&nbsp;
+        <label>Hasło: <input type="password" #password [(ngModel)]="generatedpassword"/></label>&nbsp;
         <!--<label>Ranga: <input type="number" #year/></label>&nbsp;-->
         <label>Ranga:
             <select #rank>
@@ -42,8 +48,9 @@
                 <option value="normal">Zwykły użytkownik</option>
             </select>
         </label>&nbsp;
-        <button class="btn btn-success" (click)="onAdd(username.value, password.value, rank.value);">Dodaj</button>
+        <button class="btn btn-success" (click)="onAdd(username.value,
+        password.value, rank.value);">Dodaj</button>
+        <button class="btn btn-warning"
+        (click)="getPassword();">Generuj hasło</button>
     <br>
 </div>
-<br><br>
-<h1><div style="text-align: center; color: red">WYSZUKIWANIE - //TODO</div></h1>
