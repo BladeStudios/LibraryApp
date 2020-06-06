@@ -1,1 +1,44 @@
 <p>//TODO - PANEL UŻYTKOWNIKA</p>
+
+<div class="pagetitle">Lista użytkowników</div>
+
+<div class="list"> 
+    <table>
+        <tr style="font-weight: bold;">
+            <td>ID</td>
+            <td>Nazwa użytkownika</td>
+            <td>Hasło</td>
+            <td>Ranga</td>
+            <td>Status</td>
+            <td>Akcje</td>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.type}}</td>
+            <td *ngIf="user.status=offline">
+                <div style="color: red">{{user.status}}</div>
+            </td>
+            <td *ngIf="user.status=online">
+                <div style="color: green">{{user.status}}</div>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
+            </td>
+            
+        </tr>
+    </table>
+</div>
+<br>
+<div class="addbooksform">
+    <div style="font-weight: bold; text-align: center;">Dodawanie książki:</div><br>
+    
+        <label>Autor: <input #author/></label>&nbsp;
+        <label>Tytuł: <input #title/></label>&nbsp;
+        <label>Rok wydania: <input type="number" #year/></label>&nbsp;
+        <button class="btn btn-success" (click)="onAdd(author.value, title.value, year.value);">Dodaj</button>
+    <br>
+</div>
+<br><br>
+<h1><div style="text-align: center; color: red">WYSZUKIWANIE - //TODO</div></h1>

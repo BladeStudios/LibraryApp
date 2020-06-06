@@ -1,24 +1,46 @@
-<p style="font-size: 20px; font-weight: bold; font-family: Verdana; text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>
+<!--<p style="font-size: 20px; font-weight: bold; font-family: Verdana;
+text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>-->
+<div class="pagetitle">Lista książek</div>
 
 <div class="list"> 
     <table>
         <tr style="font-weight: bold;">
-            <td>ID</td>
             <td>Autor</td>
             <td>Tytuł</td>
             <td>Rok wydania</td>
             <td>Akcje</td>
         </tr>
         <tr *ngFor="let book of books">
-            <td>{{book.id}}</td>
             <td>{{book.author}}</td>
             <td>{{book.title}}</td>
             <td>{{book.year}}</td>
-            <td *ngIf="book.borrowed"><button class="btn btn-secondary">Wypożycz</button>&nbsp;
-                <button class="btn btn-danger" (click)="onReturn(book)">Zwróć</button></td>
-            <td *ngIf="!book.borrowed"><button class="btn btn-success" (click)="onBorrow(book)">Wypożycz</button>&nbsp;
-                <button class="btn btn-secondary">Zwróć</button></td>
+            <td *ngIf="book.rent">
+                <!-- normal user -->
+                <button class="btn btn-secondary">Wypożycz</button>&nbsp;
+                <button class="btn btn-primary" (click)="onReturn(book)">Zwróć</button>&nbsp;
+                <!-- admin -->
+                <button class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
+            </td>
+            <td *ngIf="!book.rent">
+                <!-- normal user -->
+                <button class="btn btn-success" (click)="onBorrow(book)">Wypożycz</button>&nbsp;
+                <button class="btn btn-secondary">Zwróć</button>&nbsp;
+                <!-- admin -->
+                <button class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
+            </td>
+            
         </tr>
     </table>
 </div>
-
+<br>
+<div class="addbooksform">
+    <div style="font-weight: bold; text-align: center;">Dodawanie książki:</div><br>
+    
+        <label>Autor: <input #author/></label>&nbsp;
+        <label>Tytuł: <input #title/></label>&nbsp;
+        <label>Rok wydania: <input type="number" #year/></label>&nbsp;
+        <button class="btn btn-success" (click)="onAdd(author.value, title.value, year.value);">Dodaj</button>
+    <br>
+</div>
+<br><br>
+<h1><div style="text-align: center; color: red">WYSZUKIWANIE - //TODO</div></h1>

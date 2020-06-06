@@ -1,7 +1,7 @@
-export interface Book {
+export class Book {
     id: number;
     author: string;
     title: string;
     year: number;
-    borrowed: boolean;
+    rent: boolean;
 }
