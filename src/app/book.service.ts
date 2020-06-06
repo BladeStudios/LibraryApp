@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
-import { BOOKS } from './test-books';
 import { Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-//niekoniecznie potrzebne
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -35,7 +33,6 @@ export class BookService {
   };
 
   getBooks(): Observable<Book[]> {
-    //return of(BOOKS);
     return this.http.get<Book[]>(this.booksUrl);
   }
 

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BOOKS } from '../test-books';
+import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 
@@ -9,11 +8,7 @@ import { BookService } from '../book.service';
   styleUrls: ['./bookslist.component.css']
 })
 export class BookslistComponent implements OnInit {
-
-  //@Output() addBook: EventEmitter<Book> = new EventEmitter();
-  //books = BOOKS;
   books: Book[];
-  //@Input() book: Book;
   newBook: Book = new Book();
 
   constructor(private bookService: BookService) {

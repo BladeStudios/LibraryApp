@@ -1,6 +1,4 @@
-<p>//TODO - PANEL UŻYTKOWNIKA</p>
-
-<div class="pagetitle">Lista użytkowników</div>
+<div class="pagetitle">Panel administracyjny</div>
 
 <div class="list"> 
     <table>
@@ -17,27 +15,34 @@
             <td>{{user.username}}</td>
             <td>{{user.password}}</td>
             <td>{{user.type}}</td>
-            <td *ngIf="user.status=offline">
+            <td *ngIf="user.status=='offline'">
                 <div style="color: red">{{user.status}}</div>
             </td>
-            <td *ngIf="user.status=online">
-                <div style="color: green">{{user.status}}</div>
+            <td *ngIf="user.status=='online'">
+                <div style="color: green; font-weight: bold;">{{user.status}}</div>
             </td>
             <td>
-                <button class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
+                <button class="btn btn-danger" (click)="onDelete(user)">Usuń</button>
             </td>
             
         </tr>
     </table>
 </div>
 <br>
-<div class="addbooksform">
-    <div style="font-weight: bold; text-align: center;">Dodawanie książki:</div><br>
+
+<div class="addusersform">
+    <div style="font-weight: bold; text-align: center;">Dodawanie użytkownika:</div><br>
     
-        <label>Autor: <input #author/></label>&nbsp;
-        <label>Tytuł: <input #title/></label>&nbsp;
-        <label>Rok wydania: <input type="number" #year/></label>&nbsp;
-        <button class="btn btn-success" (click)="onAdd(author.value, title.value, year.value);">Dodaj</button>
+        <label>Username: <input #username/></label>&nbsp;
+        <label>Password: <input type="password" #password/></label>&nbsp;
+        <!--<label>Ranga: <input type="number" #year/></label>&nbsp;-->
+        <label>Ranga:
+            <select #rank>
+                <option value="admin">Admin</option>
+                <option value="normal">Zwykły użytkownik</option>
+            </select>
+        </label>&nbsp;
+        <button class="btn btn-success" (click)="onAdd(username.value, password.value, rank.value);">Dodaj</button>
     <br>
 </div>
 <br><br>
