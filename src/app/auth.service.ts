@@ -34,6 +34,7 @@ export class AuthService {
         {
           sessionStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
+          window.location.reload();
         }
         else
         {
