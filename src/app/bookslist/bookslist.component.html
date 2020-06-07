@@ -1,7 +1,7 @@
 <!--<p style="font-size: 20px; font-weight: bold; font-family: Verdana;
 text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>-->
 <div class="pagetitle">Lista książek</div>
-<div *ngIf="userDisplayName!=null && userDisplayName!=''">
+<div *ngIf="userDisplayName!=null">
 <div style="font-weight: bold; text-align: center;">Wyszukiwanie wg:</div><br>
 <div style="text-align: center;">
 Autora: <input type="text" #AuthorInput [(ngModel)]="authorsearch"
@@ -54,6 +54,6 @@ Roku: <input type="number" #YearInput [(ngModel)]="yearsearch"
     <br>
 </div>
 </div> <!--display-->
-<div class="warning" *ngIf="userDisplayName==null || userDisplayName==''">
+<div class="warning" *ngIf="userDisplayName==null">
     Zawartość widoczna tylko dla zalogowanych użytkowników.
 </div>

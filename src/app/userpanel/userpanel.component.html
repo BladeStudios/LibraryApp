@@ -1,5 +1,5 @@
 <div class="pagetitle">Panel administracyjny</div>
-<div *ngIf="userDisplayName!=null && userDisplayName!='' && userDisplayName.type=='admin'">
+<div *ngIf="userDisplayName!=null && userDisplayName.type=='admin'">
 <div style="font-weight: bold; text-align: center;">
     Wyszukiwanie wg nazwy użytkownika:
 <input type="text" #UserInput [(ngModel)]="usersearch"
@@ -57,7 +57,7 @@
 </div>
 
 </div>
-<div class="warning" *ngIf="userDisplayName==null || userDisplayName=='' ||
+<div class="warning" *ngIf="userDisplayName==null ||
 userDisplayName.type!='admin'">
     Zawartość widoczna tylko dla administratorów.
 </div>
