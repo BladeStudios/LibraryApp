@@ -3,7 +3,14 @@
 </div>
 <hr>
 <div class="menu">
-  <a class="menulink" routerLink="/login">LOGOWANIE</a>
+  <span *ngIf="userDisplayName == null || userDisplayName.username==''">
+    <a class="menulink" routerLink="/login">LOGOWANIE</a>
+  </span>
+  <span *ngIf="userDisplayName != null && userDisplayName.username!=''">
+    <!--<a class="menulink" click="logout()">-->
+      <button type="submit" (click)="logout(userDisplayName.username,userDisplayName.password)">
+        ZALOGOWANY JAKO {{userDisplayName.username}} (WYLOGUJ)</button>
+      </span>
   <a class="menulink" routerLink="/bookslist">LISTA KSIĄŻEK</a>
   <a class="menulink" routerLink="/userpanel">PANEL ADMINISTRACYJNY</a>
 </div>
