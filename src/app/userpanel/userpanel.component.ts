@@ -12,7 +12,7 @@ export class UserpanelComponent implements OnInit {
   newUser: User = new User();
   usersearch: string;
   generatedpassword: string;
-  userDisplayName='';
+  userDisplayName: User;
 
   constructor(private userService: UserService) { 
   }

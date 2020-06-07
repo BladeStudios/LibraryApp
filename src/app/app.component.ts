@@ -11,7 +11,7 @@ import { User } from './user';
 
 export class AppComponent implements OnInit{
   title = 'library-app';
-  userDisplayName='';
+  userDisplayName: User;
 
   constructor(private Auth: AuthService) { }
 

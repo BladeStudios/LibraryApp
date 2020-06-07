@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-bookslist',
@@ -13,7 +14,7 @@ export class BookslistComponent implements OnInit {
   authorsearch: string;
   titlesearch: string;
   yearsearch: number;
-  userDisplayName='';
+  userDisplayName: User;
 
   constructor(private bookService: BookService) {
    }
