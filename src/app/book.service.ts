@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class BookService {
 
-  private booksUrl = 'http://apilibary.azurewebsites.net/api/book';
+  private booksUrl = 'https://apilibary.azurewebsites.net/api/book';
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

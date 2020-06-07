@@ -11,8 +11,8 @@ import { EventEmitter } from 'protractor';
 })
 export class AuthService {
 
-  private loginUrl = 'http://apilibary.azurewebsites.net/api/login/login';
-  private logoutUrl = 'http://apilibary.azurewebsites.net/api/login/logout';
+  private loginUrl = 'https://apilibary.azurewebsites.net/api/login/login';
+  private logoutUrl = 'https://apilibary.azurewebsites.net/api/login/logout';
   private currentUserSubject: BehaviorSubject<User>;
   private currentUser: Observable<User>;
 
@@ -61,37 +61,4 @@ export class AuthService {
         }
       })
   }
-
-
-  /*
-  private loggedInStatus = JSON.parse(localStorage.getItem('loggedin') || 'false');
-
-  constructor(private http: HttpClient) { }
- 
- get isLoggedIn(){
-   return JSON.parse(localStorage.getItem('loggedin') || this.loggedInStatus.toString());
- }
-
- setLoggedIn(value: boolean){
-   this.loggedInStatus = value;
-   localStorage.setItem('loggedin', value.toString());
- }
-
-  getUserDetails(username, password) {
-    //post these details to API
-    return this.http.post(this.loginUrl, {
-      username,
-      password
-    }).subscribe(data => {
-      if(data==true)
-      {
-        console.log("server info: ", data);
-      }
-      else
-      {
-        console.log("server info: ", data);
-        window.alert("Błędne dane logowania!");
-      }
-    })
-  }*/
 }

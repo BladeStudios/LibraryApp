@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  private usersUrl = 'http://apilibary.azurewebsites.net/api/user';
+  private usersUrl = 'https://apilibary.azurewebsites.net/api/user';
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -61,7 +61,7 @@ export class UserService {
 
   getPassword(){
     return this.http.
-    get('http://apilibary.azurewebsites.net/api/user/generate',
+    get('https://apilibary.azurewebsites.net/api/user/generate',
     {responseType: 'text'});
   }
 
