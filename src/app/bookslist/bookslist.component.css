@@ -30,3 +30,9 @@ td{
 .addbooksform{
     text-align: center;
 }
+
+.warning{
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}

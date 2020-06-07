@@ -16,13 +16,15 @@ export class AppComponent implements OnInit{
   constructor(private Auth: AuthService) { }
 
   ngOnInit(){
-    this.userDisplayName = JSON.parse(localStorage.getItem('currentUser'));
+    this.userDisplayName = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log("ngoninit in app.component");
   }
 
   logout(username: string, password: string){
     this.Auth.logout(username,password);
     this.ngOnInit();
   }
+
 }
 
 /*

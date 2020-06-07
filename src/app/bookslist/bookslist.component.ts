@@ -13,12 +13,14 @@ export class BookslistComponent implements OnInit {
   authorsearch: string;
   titlesearch: string;
   yearsearch: number;
+  userDisplayName='';
 
   constructor(private bookService: BookService) {
    }
 
   ngOnInit() {
     this.getBooks();
+    this.userDisplayName = JSON.parse(sessionStorage.getItem('currentUser'));
   }
 
   getBooks(): void {

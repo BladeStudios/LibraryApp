@@ -12,12 +12,14 @@ export class UserpanelComponent implements OnInit {
   newUser: User = new User();
   usersearch: string;
   generatedpassword: string;
+  userDisplayName='';
 
   constructor(private userService: UserService) { 
   }
 
   ngOnInit() {
     this.getUsers();
+    this.userDisplayName = JSON.parse(sessionStorage.getItem('currentUser'));
   }
 
   getUsers(): void {

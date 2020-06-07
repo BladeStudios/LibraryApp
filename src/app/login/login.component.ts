@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { AppComponent } from '../app.component';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
     const password = target.password.value;
 
     this.Auth.login(username,password);
-
-    console.log(username, password);
+    //console.log(username, password);
   }
 
 }

@@ -1,7 +1,7 @@
 <!--<p style="font-size: 20px; font-weight: bold; font-family: Verdana;
 text-align: center; color: red;">//TODO - LISTA KSIAZEK</p>-->
 <div class="pagetitle">Lista książek</div>
-
+<div *ngIf="userDisplayName!=null && userDisplayName!=''">
 <div style="font-weight: bold; text-align: center;">Wyszukiwanie wg:</div><br>
 <div style="text-align: center;">
 Autora: <input type="text" #AuthorInput [(ngModel)]="authorsearch"
@@ -28,21 +28,23 @@ Roku: <input type="number" #YearInput [(ngModel)]="yearsearch"
                 <button class="btn btn-secondary">Wypożycz</button>&nbsp;
                 <button class="btn btn-primary" (click)="onReturn(book)">Zwróć</button>&nbsp;
                 <!-- admin -->
-                <button class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
+                <button *ngIf="userDisplayName.type=='admin'"
+                class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
             </td>
             <td *ngIf="!book.rent">
                 <!-- normal user -->
                 <button class="btn btn-success" (click)="onBorrow(book)">Wypożycz</button>&nbsp;
                 <button class="btn btn-secondary">Zwróć</button>&nbsp;
                 <!-- admin -->
-                <button class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
+                <button *ngIf="userDisplayName.type=='admin'"
+                class="btn btn-danger" (click)="onDelete(book)">Usuń</button>
             </td>
             
         </tr>
     </table>
 </div>
 <br>
-<div class="addbooksform">
+<div *ngIf="userDisplayName.type=='admin'" class="addbooksform">
     <div style="font-weight: bold; text-align: center;">Dodawanie książki:</div><br>
     
         <label>Autor: <input #author/></label>&nbsp;
@@ -50,4 +52,8 @@ Roku: <input type="number" #YearInput [(ngModel)]="yearsearch"
         <label>Rok wydania: <input type="number" #year/></label>&nbsp;
         <button class="btn btn-success" (click)="onAdd(author.value, title.value, year.value);">Dodaj</button>
     <br>
+</div>
+</div> <!--display-->
+<div class="warning" *ngIf="userDisplayName==null || userDisplayName==''">
+    Zawartość widoczna tylko dla zalogowanych użytkowników.
 </div>

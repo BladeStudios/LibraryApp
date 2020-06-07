@@ -28,6 +28,20 @@
     cursor: pointer;
 }
 
+.logoutbutton{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 15px 5px 15px;
+    font-weight: bold;
+    color: blue;
+}
+
+.logoutbutton:hover{
+    color: black;
+    background-color: red;
+    cursor: pointer;
+}
+
 .menu{
     text-align: center;
 }

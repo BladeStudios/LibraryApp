@@ -1,5 +1,5 @@
 <div class="pagetitle">Panel administracyjny</div>
-
+<div *ngIf="userDisplayName!=null && userDisplayName!='' && userDisplayName.type=='admin'">
 <div style="font-weight: bold; text-align: center;">
     Wyszukiwanie wg nazwy użytkownika:
 <input type="text" #UserInput [(ngModel)]="usersearch"
@@ -28,7 +28,8 @@
                 <div style="color: green; font-weight: bold;">{{user.status}}</div>
             </td>
             <td>
-                <button class="btn btn-danger" (click)="onDelete(user)">Usuń</button>
+                <button *ngIf="user.username!='admin'" class="btn btn-danger" (click)="onDelete(user)">Usuń</button>
+                <button *ngIf="user.username=='admin'" class="btn btn-secondary">Usuń</button>
             </td>
             
         </tr>
@@ -53,4 +54,10 @@
         <button class="btn btn-warning"
         (click)="getPassword();">Generuj hasło</button>
     <br>
+</div>
+
+</div>
+<div class="warning" *ngIf="userDisplayName==null || userDisplayName=='' ||
+userDisplayName.type!='admin'">
+    Zawartość widoczna tylko dla administratorów.
 </div>

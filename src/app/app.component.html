@@ -7,9 +7,10 @@
     <a class="menulink" routerLink="/login">LOGOWANIE</a>
   </span>
   <span *ngIf="userDisplayName != null && userDisplayName.username!=''">
-    <!--<a class="menulink" click="logout()">-->
-      <button type="submit" (click)="logout(userDisplayName.username,userDisplayName.password)">
-        ZALOGOWANY JAKO {{userDisplayName.username}} (WYLOGUJ)</button>
+    <a class="logoutbutton" (click)="logout(userDisplayName.username,userDisplayName.password)">
+      <!--<button type="submit"
+      (click)="logout(userDisplayName.username,userDisplayName.password)">-->
+        Zalogowany jako: {{userDisplayName.username}} (WYLOGUJ)</a>
       </span>
   <a class="menulink" routerLink="/bookslist">LISTA KSIĄŻEK</a>
   <a class="menulink" routerLink="/userpanel">PANEL ADMINISTRACYJNY</a>
