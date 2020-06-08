@@ -62,8 +62,7 @@ export class UserService {
 
   getPassword(){
     return this.http.
-    get('https://apilibary.azurewebsites.net/api/user/generate',
-    {responseType: 'text'});
+    get('https://apilibary.azurewebsites.net/api/user/generate',{responseType: 'text'});
   }
 
   public getToken(){
