@@ -62,6 +62,9 @@ export class BookService {
   }
 
   public getToken(){
-    return JSON.parse(sessionStorage.getItem('currentUser')).token;
+    if(sessionStorage.getItem('currentUser')!=null)
+      return JSON.parse(sessionStorage.getItem('currentUser')).token;
+    else
+      return null;
   }
 }

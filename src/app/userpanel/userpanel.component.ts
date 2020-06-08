@@ -18,8 +18,9 @@ export class UserpanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUsers();
     this.userDisplayName = JSON.parse(sessionStorage.getItem('currentUser'));
+    if(this.userDisplayName!=null)
+      this.getUsers();
   }
 
   getUsers(): void {

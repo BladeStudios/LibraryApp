@@ -20,8 +20,9 @@ export class BookslistComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getBooks();
     this.userDisplayName = JSON.parse(sessionStorage.getItem('currentUser'));
+    if(this.userDisplayName!=null)
+      this.getBooks();
   }
 
   getBooks(): void {
