@@ -29,11 +29,12 @@ export class BookService {
   }
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: //new HttpHeaders({ 'Content-Type': 'application/json' }),
+             new HttpHeaders({'Authorization': this.getToken()})
   };
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksUrl);
+    return this.http.get<Book[]>(this.booksUrl,this.httpOptions);
   }
 
   updateBook(book: Book): Observable<any>{
@@ -58,5 +59,9 @@ export class BookService {
       tap(_ => console.log(`added book title=${book.title}`)),
       catchError(this.handleError<Book>('addBook'))
     );
+  }
+
+  public getToken(){
+    return JSON.parse(sessionStorage.getItem('currentUser')).token;
   }
 }

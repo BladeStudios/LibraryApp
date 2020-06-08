@@ -28,11 +28,12 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: //new HttpHeaders({ 'Content-Type': 'application/json' }),
+             new HttpHeaders({'Authorization': this.getToken()})
   };
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+    return this.http.get<User[]>(this.usersUrl,this.httpOptions);
   }
 
   updateUser(user: User): Observable<any>{
@@ -63,6 +64,10 @@ export class UserService {
     return this.http.
     get('https://apilibary.azurewebsites.net/api/user/generate',
     {responseType: 'text'});
+  }
+
+  public getToken(){
+    return JSON.parse(sessionStorage.getItem('currentUser')).token;
   }
 
 }
